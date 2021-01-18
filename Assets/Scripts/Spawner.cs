@@ -24,11 +24,15 @@ public class Spawner : MonoBehaviour
             {
                 temp = Instantiate(personPrefab, new Vector2(Random.Range(-10f, -9f), Random.Range(-2.5f, 2.5f)), Quaternion.identity);
                 if (Random.value < GameController.instance.chanceForInfectedSpawn) temp.GetComponent<Person>().StartSelfInfectionFunction();
+                else if (Random.value < GameController.instance.chanceForAsymptomaticSpawn) temp.GetComponent<Person>().AsympTransformFunction();
+                else if (Random.value < GameController.instance.chanceForRedInfectedSpawn) temp.GetComponent<Person>().StartSelfInfectionRedFunction();
             }
             else
             {
                 temp = Instantiate(personPrefab, new Vector2(Random.Range(10f, 9f), Random.Range(-2.5f, 2.5f)), Quaternion.identity);
                 if (Random.value < GameController.instance.chanceForInfectedSpawn) temp.GetComponent<Person>().StartSelfInfectionFunction();
+                else if (Random.value < GameController.instance.chanceForAsymptomaticSpawn) temp.GetComponent<Person>().AsympTransformFunction();
+                else if (Random.value < GameController.instance.chanceForRedInfectedSpawn) temp.GetComponent<Person>().StartSelfInfectionRedFunction();
             }
             StartCoroutine(SpawnRoutine());
         }

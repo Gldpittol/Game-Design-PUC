@@ -18,6 +18,9 @@ public class Person : MonoBehaviour
     public int infectedCollisionAmt;
     public CircleCollider2D cc;
     public SpriteRenderer sr;
+
+    public bool isAsymptomatic = false;
+    public bool isRedInfected = false;
     private void Start()
     {
         //cc = GetComponent<CircleCollider2D>();
@@ -30,7 +33,7 @@ public class Person : MonoBehaviour
 
     private void Update()
     {
-        if(!CompareTag("Infected"))
+        if((CompareTag("Person")))
         {
             if (infectedCollisionAmt > 0)
             {
@@ -90,15 +93,21 @@ public class Person : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Infected") && !this.CompareTag("Infected"))
+        if(collision.CompareTag("Infected") && (CompareTag("Person")))
         {
             //StartSelfInfectionFunction();
             infectedCollisionAmt++;
         }
+
+        if (collision.CompareTag("RedInfected") && (CompareTag("Person")))
+        {
+            isRedInfected = true;
+            StartSelfInfectionFunction();
+        }
     }
      private void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.CompareTag("Infected") && !this.CompareTag("Infected"))
+        if(collision.CompareTag("Infected") && (CompareTag("Person")))
         {
             //StartSelfInfectionFunction();
             infectedCollisionAmt--;
@@ -108,7 +117,7 @@ public class Person : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.CompareTag("Hospital") && this.CompareTag("Infected"))
+        if (collision.CompareTag("Hospital") && (CompareTag("Infected") || CompareTag("RedInfected")))
         {
             if (GameController.instance.currentInHospital < GameController.instance.hospitalCapacity && isDragging) EnterHospital();
         }
@@ -203,13 +212,35 @@ public class Person : MonoBehaviour
         StartCoroutine(StartSelfInfectionRoutine());
     }
 
+    public void StartSelfInfectionRedFunction()
+    {
+        isRedInfected = true;
+        StartCoroutine(StartSelfInfectionRoutine());
+    }
+
     public IEnumerator StartSelfInfectionRoutine()
     {
-        gameObject.tag = "Infected";
-        GameController.instance.currentInfected += 1;
-        sr.color = Color.green;
-        ContagionCircle.SetActive(true);
-        cc.enabled = !cc.enabled;
+        if(!isRedInfected)
+        {
+            gameObject.tag = "Infected";
+            GameController.instance.currentInfected += 1;
+            sr.color = Color.green;
+            ContagionCircle.SetActive(true);
+            cc.enabled = !cc.enabled;
+        }
+
+        else
+        {
+            gameObject.tag = "RedInfected";
+            GameController.instance.currentInfected += 1;
+            sr.color = Color.red;
+            ContagionCircle.SetActive(true);
+            SpriteRenderer temp = ContagionCircle.GetComponent<SpriteRenderer>();
+            temp.color = Color.red;
+            temp.color = new Color(temp.color.r, temp.color.g, temp.color.b, 0.4f);
+            cc.enabled = !cc.enabled;
+        }
+        
         //if(isDragging)
         //{
         //    isDragging = false;
@@ -218,5 +249,38 @@ public class Person : MonoBehaviour
         yield return null;
     }
 
+
+    public void AsympTransformFunction()
+    {
+        tag = "Asymptomatic";
+        StartCoroutine(AsympTransform());
+    }
+    public IEnumerator AsympTransform()
+    {
+        yield return new WaitForSeconds(GameController.instance.AsymptomaticDelay);
+
+
+        if (this.CompareTag("Asymptomatic"))
+        {
+            while (infectedTime < GameController.instance.AsymptomaticTransformationDuration)
+            {
+
+                infectedTime += Time.deltaTime;
+                sr.color = Color.Lerp(Color.white, Color.green, infectedTime / GameController.instance.AsymptomaticTransformationDuration);
+                yield return null;
+            }
+
+            ContagionCircle.SetActive(true);
+            SpriteRenderer temp = ContagionCircle.GetComponent<SpriteRenderer>();
+            temp.color = Color.green;
+            temp.color = new Color(temp.color.r, temp.color.g, temp.color.b, 0.4f); cc.enabled = !cc.enabled;
+
+            GameController.instance.currentInfected += 1;
+            tag = "Infected";
+        }
+
+        else yield return null;
+    }
+     
 
 }

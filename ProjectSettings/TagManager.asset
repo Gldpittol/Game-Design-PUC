@@ -8,6 +8,10 @@ TagManager:
   - Infected
   - Masked
   - Hospital
+  - InfectedRed
+  - Assymptomatic
+  - RedInfected
+  - Asymptomatic
   layers:
   - Default
   - TransparentFX

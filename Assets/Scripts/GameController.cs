@@ -17,11 +17,16 @@ public class GameController : MonoBehaviour
     public float minDelayBetweenSpawns;
     public float maxDelayBetweenSpawns;
     public float chanceForInfectedSpawn;
+    public float chanceForAsymptomaticSpawn;
+    public float chanceForRedInfectedSpawn;
     public float timeToSurvive;
     public float maxInfected;
     public float hospitalCapacity;
     public float hospitalCareTime;
     public float timeToInfection;
+    public float AsymptomaticDelay;
+    public float AsymptomaticTransformationDuration;
+
 
     private float currentTime;
     public EGameState eGameState = EGameState.GamePlay;

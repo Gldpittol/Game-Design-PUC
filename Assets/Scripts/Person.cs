@@ -14,9 +14,15 @@ public class Person : MonoBehaviour
     private bool isTargetOne;
     public GameObject ContagionCircle;
 
-
+    public float infectedTime;
+    public int infectedCollisionAmt;
+    public CircleCollider2D cc;
+    public SpriteRenderer sr;
     private void Start()
     {
+        //cc = GetComponent<CircleCollider2D>();
+        cc.enabled = !cc.enabled;
+
         InitializeTargets();
         GameController.instance.currentPeople += 1;
     }
@@ -24,6 +30,27 @@ public class Person : MonoBehaviour
 
     private void Update()
     {
+        if(!CompareTag("Infected"))
+        {
+            if (infectedCollisionAmt > 0)
+            {
+                infectedTime += Time.deltaTime;
+                sr.color = Color.Lerp(Color.white, Color.green, infectedTime / GameController.instance.timeToInfection);
+
+
+                if (infectedTime > GameController.instance.timeToInfection)
+                {
+                    StartSelfInfectionFunction();
+                }
+            }
+
+            else if (infectedCollisionAmt == 0)
+            {
+                infectedTime = 0;
+                sr.color = Color.white;
+            }
+        }
+
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 mousePosition = mousePos - transform.position;
 
@@ -65,10 +92,19 @@ public class Person : MonoBehaviour
     {
         if(collision.CompareTag("Infected") && !this.CompareTag("Infected"))
         {
-            StartSelfInfectionFunction();
+            //StartSelfInfectionFunction();
+            infectedCollisionAmt++;
         }
-        
     }
+     private void OnTriggerExit2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Infected") && !this.CompareTag("Infected"))
+        {
+            //StartSelfInfectionFunction();
+            infectedCollisionAmt--;
+        }
+    }
+
 
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -171,8 +207,9 @@ public class Person : MonoBehaviour
     {
         gameObject.tag = "Infected";
         GameController.instance.currentInfected += 1;
-        GetComponent<SpriteRenderer>().color = Color.green;
+        sr.color = Color.green;
         ContagionCircle.SetActive(true);
+        cc.enabled = !cc.enabled;
         //if(isDragging)
         //{
         //    isDragging = false;

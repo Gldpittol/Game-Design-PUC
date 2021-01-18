@@ -21,6 +21,7 @@ public class GameController : MonoBehaviour
     public float maxInfected;
     public float hospitalCapacity;
     public float hospitalCareTime;
+    public float timeToInfection;
 
     private float currentTime;
     public EGameState eGameState = EGameState.GamePlay;

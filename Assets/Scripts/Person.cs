@@ -12,6 +12,7 @@ public class Person : MonoBehaviour
     private bool isFacingLeft = false;
     public bool isDragging = false;
     private bool isTargetOne;
+    public GameObject ContagionCircle;
 
 
     private void Start()
@@ -170,7 +171,8 @@ public class Person : MonoBehaviour
     {
         gameObject.tag = "Infected";
         GameController.instance.currentInfected += 1;
-        GetComponent<SpriteRenderer>().color = Color.red;
+        GetComponent<SpriteRenderer>().color = Color.green;
+        ContagionCircle.SetActive(true);
         //if(isDragging)
         //{
         //    isDragging = false;

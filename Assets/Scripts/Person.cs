@@ -93,13 +93,13 @@ public class Person : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Infected") && (CompareTag("Person")))
+        if(collision.CompareTag("Infected") && (CompareTag("Person") || CompareTag("Asymptomatic")))
         {
             //StartSelfInfectionFunction();
             infectedCollisionAmt++;
         }
 
-        if (collision.CompareTag("RedInfected") && (CompareTag("Person")))
+        if (collision.CompareTag("RedInfected") && (CompareTag("Person") || CompareTag("Asymptomatic")))
         {
             isRedInfected = true;
             StartSelfInfectionFunction();

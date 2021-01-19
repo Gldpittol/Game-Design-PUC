@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public enum EGameState
 {
     GamePlay,
@@ -20,6 +21,7 @@ public class GameController : MonoBehaviour
     public float chanceForAsymptomaticSpawn;
     public float chanceForRedInfectedSpawn;
     public float timeToSurvive;
+    public float maxPeople;
     public float maxInfected;
     public float hospitalCapacity;
     public float hospitalCareTime;
@@ -28,11 +30,14 @@ public class GameController : MonoBehaviour
     public float AsymptomaticTransformationDuration;
 
 
+
     private float currentTime;
     public EGameState eGameState = EGameState.GamePlay;
+    public string nextLevelName;
 
     [HideInInspector]public float currentInfected = 0;
     [HideInInspector] public float currentPeople = 0;
+    
     [HideInInspector] public float currentInHospital = 0;
 
 
@@ -54,7 +59,7 @@ public class GameController : MonoBehaviour
     {
         if(eGameState == EGameState.GamePlay)
         {
-            currentTime += Time.deltaTime;
+            currentTime += Time.deltaTime;       
             timeRemainingText.text = "Survive For: " + (timeToSurvive - currentTime).ToString("F2") + "s";
             inFectedText.text = currentInfected + " / " + maxInfected + " Infected";
             totalPeopleText.text = currentPeople + " Moving Around";
@@ -83,9 +88,14 @@ public class GameController : MonoBehaviour
                 timeRemainingText.text = "You Won!";
             }
         }
-        else
+        else if(eGameState == EGameState.GameOver)
         {
             Time.timeScale = 0f;
+        }
+
+        else if (eGameState == EGameState.Victory)
+        {
+            StartCoroutine(LoadNewLevel());
         }
     }
 
@@ -100,5 +110,13 @@ public class GameController : MonoBehaviour
         yield return new WaitForSeconds(hospitalCareTime);
         if(currentInHospital > 0) currentInHospital -= 1;
         if (currentInHospital > 0) StartCoroutine(FreeHospitalRoutine());
+    }
+
+    public IEnumerator LoadNewLevel()
+    {
+        Time.timeScale = 0f;
+        yield return new WaitForSeconds(1f);
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(nextLevelName, LoadSceneMode.Single);
     }
 }

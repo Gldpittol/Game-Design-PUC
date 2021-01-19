@@ -14,7 +14,7 @@ public class Spawner : MonoBehaviour
 
     public IEnumerator SpawnRoutine()
     {
-        if(GameController.instance.eGameState == EGameState.GamePlay)
+        if (GameController.instance.eGameState == EGameState.GamePlay && GameController.instance.currentPeople < GameController.instance.maxPeople - 1)
         {
             yield return new WaitForSeconds(Random.Range(GameController.instance.minDelayBetweenSpawns, GameController.instance.maxDelayBetweenSpawns));
 

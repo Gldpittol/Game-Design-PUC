@@ -21,6 +21,7 @@ public class Person : MonoBehaviour
 
     public bool isAsymptomatic = false;
     public bool isRedInfected = false;
+    public bool isOldGuy = false;
     private void Start()
     {
         //cc = GetComponent<CircleCollider2D>();
@@ -107,7 +108,7 @@ public class Person : MonoBehaviour
     }
      private void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.CompareTag("Infected") && (CompareTag("Person")))
+        if(collision.CompareTag("Infected") && infectedCollisionAmt > 0)
         {
             //StartSelfInfectionFunction();
             infectedCollisionAmt--;
@@ -122,8 +123,17 @@ public class Person : MonoBehaviour
             if (GameController.instance.currentInHospital < GameController.instance.hospitalCapacity && isDragging) EnterHospital();
         }
     }
+
+
+    public void Age()
+    {
+        isOldGuy = true;
+        cc.enabled = !cc.enabled;
+    }
+
     public void EnterHospital()
     {
+        tag = "Person";
         GameController.instance.currentPeople -= 1;
         GameController.instance.currentInfected -= 1;
         GameController.instance.currentInHospital += 1;
@@ -218,15 +228,28 @@ public class Person : MonoBehaviour
         StartCoroutine(StartSelfInfectionRoutine());
     }
 
+    public void CurePerson()
+    {
+        gameObject.tag = "Person";
+        ContagionCircle.SetActive(false);
+        if (!isOldGuy) cc.enabled = !cc.enabled;
+        sr.color = Color.white;
+        GameController.instance.currentInfected -= 1;
+        infectedTime = 0;
+    }
+
     public IEnumerator StartSelfInfectionRoutine()
     {
+        infectedTime = 0;
+        yield return null;
+
         if(!isRedInfected)
         {
             gameObject.tag = "Infected";
             GameController.instance.currentInfected += 1;
             sr.color = Color.green;
             ContagionCircle.SetActive(true);
-            cc.enabled = !cc.enabled;
+            if(!isOldGuy) cc.enabled = !cc.enabled;
         }
 
         else
@@ -238,7 +261,7 @@ public class Person : MonoBehaviour
             SpriteRenderer temp = ContagionCircle.GetComponent<SpriteRenderer>();
             temp.color = Color.red;
             temp.color = new Color(temp.color.r, temp.color.g, temp.color.b, 0.4f);
-            cc.enabled = !cc.enabled;
+            if (!isOldGuy) cc.enabled = !cc.enabled;
         }
         
         //if(isDragging)
@@ -258,7 +281,6 @@ public class Person : MonoBehaviour
     public IEnumerator AsympTransform()
     {
         yield return new WaitForSeconds(GameController.instance.AsymptomaticDelay);
-
 
         if (this.CompareTag("Asymptomatic"))
         {

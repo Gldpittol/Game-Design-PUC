@@ -15,6 +15,8 @@ public class GameController : MonoBehaviour
 {
     public static GameController instance;
 
+
+    [Header("Level Parameters")]
     public float minDelayBetweenSpawns;
     public float maxDelayBetweenSpawns;
     public float chanceForInfectedSpawn;
@@ -28,38 +30,55 @@ public class GameController : MonoBehaviour
     public float timeToInfection;
     public float AsymptomaticDelay;
     public float AsymptomaticTransformationDuration;
-
-
+    public float chanceToBeOldGuy;
+    public float minTimeDoctor;
+    public float maxTimeDoctor;
+    
 
     private float currentTime;
+    [HideInInspector]public float actualTimeDoctor;
     public EGameState eGameState = EGameState.GamePlay;
     public string nextLevelName;
+    public string currentLevelName;
 
     [HideInInspector]public float currentInfected = 0;
     [HideInInspector] public float currentPeople = 0;
     
     [HideInInspector] public float currentInHospital = 0;
 
-
+    [Header("Texts")]
     public Text timeRemainingText;
     public Text inFectedText;
     public Text totalPeopleText;
     public Text onHospitalText;
     public Text nextVacancyText;
 
+    [Header("Canvas")]
+    public GameObject youWinCanvas;
+    public GameObject youLoseCanvas;
 
     private float timeUntilNextVacancy = 0;
 
     private void Awake()
     {
+        Time.timeScale = 1f;
         instance = this;
+        actualTimeDoctor = Random.Range(minTimeDoctor, maxTimeDoctor);
     }
 
     private void Update()
     {
         if(eGameState == EGameState.GamePlay)
         {
-            currentTime += Time.deltaTime;       
+            currentTime += Time.deltaTime;    
+            
+            if(currentTime > actualTimeDoctor)
+            {
+                Spawner.instance.SpawnDoctor();
+                actualTimeDoctor = 999999f;
+            }
+
+
             timeRemainingText.text = "Survive For: " + (timeToSurvive - currentTime).ToString("F2") + "s";
             inFectedText.text = currentInfected + " / " + maxInfected + " Infected";
             totalPeopleText.text = currentPeople + " Moving Around";
@@ -91,11 +110,30 @@ public class GameController : MonoBehaviour
         else if(eGameState == EGameState.GameOver)
         {
             Time.timeScale = 0f;
+            youLoseCanvas.gameObject.SetActive(true);
+            if(Input.GetKeyDown(KeyCode.R))
+            {
+                LoadNewLevel(currentLevelName);
+            }
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                Application.Quit();
+            }
         }
 
         else if (eGameState == EGameState.Victory)
         {
-            StartCoroutine(LoadNewLevel());
+            Time.timeScale = 0f;
+            youWinCanvas.gameObject.SetActive(true);
+
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+                LoadNewLevel(nextLevelName);
+            }
+            if(Input.GetKeyDown(KeyCode.Escape))
+            {
+                Application.Quit();
+            }
         }
     }
 
@@ -112,11 +150,8 @@ public class GameController : MonoBehaviour
         if (currentInHospital > 0) StartCoroutine(FreeHospitalRoutine());
     }
 
-    public IEnumerator LoadNewLevel()
+    public void LoadNewLevel(string sceneName)
     {
-        Time.timeScale = 0f;
-        yield return new WaitForSeconds(1f);
-        Time.timeScale = 1f;
-        SceneManager.LoadScene(nextLevelName, LoadSceneMode.Single);
+        SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
     }
 }

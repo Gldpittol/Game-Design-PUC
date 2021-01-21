@@ -5,7 +5,14 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     public GameObject personPrefab;
+    public GameObject doctorPrefab;
     private GameObject temp;
+    public static Spawner instance;
+    public Vector2 doctorSpawnPos;
+    private void Awake()
+    {
+        instance = this;
+    }
 
     private void Start()
     {
@@ -26,6 +33,7 @@ public class Spawner : MonoBehaviour
                 if (Random.value < GameController.instance.chanceForInfectedSpawn) temp.GetComponent<Person>().StartSelfInfectionFunction();
                 else if (Random.value < GameController.instance.chanceForAsymptomaticSpawn) temp.GetComponent<Person>().AsympTransformFunction();
                 else if (Random.value < GameController.instance.chanceForRedInfectedSpawn) temp.GetComponent<Person>().StartSelfInfectionRedFunction();
+                if (Random.value < GameController.instance.chanceToBeOldGuy) temp.GetComponent<Person>().Age();
             }
             else
             {
@@ -33,10 +41,14 @@ public class Spawner : MonoBehaviour
                 if (Random.value < GameController.instance.chanceForInfectedSpawn) temp.GetComponent<Person>().StartSelfInfectionFunction();
                 else if (Random.value < GameController.instance.chanceForAsymptomaticSpawn) temp.GetComponent<Person>().AsympTransformFunction();
                 else if (Random.value < GameController.instance.chanceForRedInfectedSpawn) temp.GetComponent<Person>().StartSelfInfectionRedFunction();
+                if (Random.value < GameController.instance.chanceToBeOldGuy) temp.GetComponent<Person>().Age();
             }
             StartCoroutine(SpawnRoutine());
         }
     }
 
-
+    public void SpawnDoctor()
+    {
+        Instantiate(doctorPrefab, doctorSpawnPos, Quaternion.identity);
+    }
 }

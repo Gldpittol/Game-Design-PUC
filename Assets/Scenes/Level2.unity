@@ -666,21 +666,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minDelayBetweenSpawns: 1
-  maxDelayBetweenSpawns: 4
-  chanceForInfectedSpawn: 0.3
-  chanceForAsymptomaticSpawn: 0
-  chanceForRedInfectedSpawn: 0
-  timeToSurvive: 20
-  maxPeople: 3
-  maxInfected: 3
-  hospitalCapacity: 0
-  hospitalCareTime: 0
-  timeToInfection: 0.6
-  AsymptomaticDelay: 0
-  AsymptomaticTransformationDuration: 0
-  chanceToBeOldGuy: 0
-  minTimeDoctor: 20
-  maxTimeDoctor: 20
+  maxDelayBetweenSpawns: 5
+  chanceForInfectedSpawn: 0.5
+  chanceForAsymptomaticSpawn: 0.3
+  chanceForRedInfectedSpawn: 0.3
+  timeToSurvive: 60
+  maxPeople: 10
+  maxInfected: 5
+  hospitalCapacity: 10
+  hospitalCareTime: 10
+  timeToInfection: 1
+  AsymptomaticDelay: 10
+  AsymptomaticTransformationDuration: 2
+  chanceToBeOldGuy: 0.3
+  minTimeDoctor: 3
+  maxTimeDoctor: 4
   actualTimeDoctor: 0
   eGameState: 0
   nextLevelName: Level1
@@ -1358,7 +1358,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!50 &1484213430
 Rigidbody2D:
   serializedVersion: 4
@@ -1387,7 +1387,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1484213429}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -1413,7 +1413,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1484213429}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -1446,7 +1446,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: 1a960d9b6b914794fa073bacd0d6509b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.7882353}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

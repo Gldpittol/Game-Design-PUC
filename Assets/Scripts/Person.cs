@@ -120,7 +120,10 @@ public class Person : MonoBehaviour
     {
         if (collision.CompareTag("Hospital") && (CompareTag("Infected") || CompareTag("RedInfected")))
         {
-            if (GameController.instance.currentInHospital < GameController.instance.hospitalCapacity && isDragging) EnterHospital();
+            if (GameController.instance.currentInHospital < GameController.instance.hospitalCapacity && isDragging)
+            {
+                EnterHospital();
+            }
         }
     }
 
@@ -138,7 +141,7 @@ public class Person : MonoBehaviour
         GameController.instance.currentInfected -= 1;
         GameController.instance.currentInHospital += 1;
         if (GameController.instance.currentInHospital == 1) GameController.instance.FreeHospitalFunction();
-        Destroy(this.gameObject);
+        Destroy(gameObject);
     }
 
     public void InitializeTargets()

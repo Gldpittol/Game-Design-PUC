@@ -56,8 +56,11 @@ public class GameController : MonoBehaviour
     [Header("Canvas")]
     public GameObject youWinCanvas;
     public GameObject youLoseCanvas;
+    public GameObject optionsCanvas;
 
     private float timeUntilNextVacancy = 0;
+
+    private bool isOptionsOnScreen;
 
     private void Awake()
     {
@@ -79,20 +82,20 @@ public class GameController : MonoBehaviour
             }
 
 
-            timeRemainingText.text = "Survive For: " + (timeToSurvive - currentTime).ToString("F2") + "s";
-            inFectedText.text = currentInfected + " / " + maxInfected + " Infected";
-            totalPeopleText.text = currentPeople + " Moving Around";
-            onHospitalText.text = "Current in Hospital: " + currentInHospital + " / " + hospitalCapacity; 
+            timeRemainingText.text = /*"Survive For: " + */(timeToSurvive - currentTime).ToString("F2") + "s";
+            inFectedText.text = currentInfected + " / " + maxInfected/* + " Infected"*/;
+            totalPeopleText.text = currentPeople.ToString() /* + " Moving Around"*/;
+            onHospitalText.text = /*"Current in Hospital: " + */currentInHospital + " / " + hospitalCapacity; 
 
             if(timeUntilNextVacancy > 0)
             {
                 timeUntilNextVacancy -= Time.deltaTime;
-                nextVacancyText.text = "Time Until Next Vancancy: " + timeUntilNextVacancy.ToString("F2") + "s";
+                nextVacancyText.text = /*"Time Until Next Vancancy: " + */timeUntilNextVacancy.ToString("F2") + "s";
             }
             else
             {
                 timeUntilNextVacancy -= 0;
-                nextVacancyText.text = "Time Until Next Vancancy: -";
+                nextVacancyText.text = /*"Time Until Next Vancancy: -"*/ "-";
             }
 
             if (currentInfected >= maxInfected)
@@ -106,6 +109,25 @@ public class GameController : MonoBehaviour
                 eGameState = EGameState.Victory;
                 timeRemainingText.text = "You Won!";
             }
+
+
+            if(Input.GetKeyDown(KeyCode.Escape))
+            {
+                if (!isOptionsOnScreen)
+                {
+                    Time.timeScale = 0f;
+                    optionsCanvas.SetActive(true);
+                    isOptionsOnScreen = true;
+                }
+                else
+                {
+                    Time.timeScale = 1f;
+                    optionsCanvas.SetActive(false);
+                    isOptionsOnScreen = false;
+                }
+            }
+
+
         }
         else if(eGameState == EGameState.GameOver)
         {

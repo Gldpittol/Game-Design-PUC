@@ -512,7 +512,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1966948138}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9, y: -4.5, z: 0}
+  m_LocalPosition: {x: 8.49, y: -4.3, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_Children:
   - {fileID: 1142989348}
@@ -661,10 +661,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 13403629469333481, guid: 9d4beace0a130f64c98984a51a99a27d,
+        type: 3}
+      propertyPath: m_FontData.m_FontStyle
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1587594851742674019, guid: 9d4beace0a130f64c98984a51a99a27d,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -342
+      value: -213
+      objectReference: {fileID: 0}
+    - target: {fileID: 1587594851742674019, guid: 9d4beace0a130f64c98984a51a99a27d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 23.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2352212983314748729, guid: 9d4beace0a130f64c98984a51a99a27d,
+        type: 3}
+      propertyPath: m_Text
+      value: LET'S TRY
+      objectReference: {fileID: 0}
+    - target: {fileID: 3483951525043768646, guid: 9d4beace0a130f64c98984a51a99a27d,
+        type: 3}
+      propertyPath: m_Text
+      value: OK. YOU GOT IT!
       objectReference: {fileID: 0}
     - target: {fileID: 3483951526493506010, guid: 9d4beace0a130f64c98984a51a99a27d,
         type: 3}
@@ -800,6 +820,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6449854656157287336, guid: 9d4beace0a130f64c98984a51a99a27d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d4beace0a130f64c98984a51a99a27d, type: 3}

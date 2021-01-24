@@ -196,7 +196,7 @@ MonoBehaviour:
   minDelayBetweenSpawns: 1
   maxDelayBetweenSpawns: 5
   chanceForInfectedSpawn: 0
-  chanceForAsymptomaticSpawn: 0.3
+  chanceForAsymptomaticSpawn: 0.4
   chanceForRedInfectedSpawn: 0
   timeToSurvive: 25
   maxPeople: 5
@@ -447,6 +447,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 13403629469333481, guid: 9d4beace0a130f64c98984a51a99a27d,
+        type: 3}
+      propertyPath: m_Text
+      value: Level 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3483951526493506010, guid: 9d4beace0a130f64c98984a51a99a27d,
         type: 3}
       propertyPath: m_LocalPosition.x

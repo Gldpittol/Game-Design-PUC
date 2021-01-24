@@ -169,7 +169,7 @@ MonoBehaviour:
   maxTimeDoctor: 30
   actualTimeDoctor: 0
   eGameState: 0
-  nextLevelName: Menu
+  nextLevelName: Level6
   currentLevelName: Level5
   currentInfected: 0
   currentPeople: 0
@@ -303,6 +303,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 13403629469333481, guid: 9d4beace0a130f64c98984a51a99a27d,
+        type: 3}
+      propertyPath: m_Text
+      value: Level 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3483951526493506010, guid: 9d4beace0a130f64c98984a51a99a27d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -557,7 +562,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &6646280001161073890
 PrefabInstance:
@@ -619,7 +624,7 @@ PrefabInstance:
     - target: {fileID: 6646280001513598624, guid: 522b2f25393295747822e1c8a7580393,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6646280001513598624, guid: 522b2f25393295747822e1c8a7580393,
         type: 3}

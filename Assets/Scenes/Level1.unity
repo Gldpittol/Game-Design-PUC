@@ -447,21 +447,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3483951524940031010, guid: 9d4beace0a130f64c98984a51a99a27d,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3483951525341855466, guid: 9d4beace0a130f64c98984a51a99a27d,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3483951526027827844, guid: 9d4beace0a130f64c98984a51a99a27d,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3483951526493506010, guid: 9d4beace0a130f64c98984a51a99a27d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -571,16 +556,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: HUD
-      objectReference: {fileID: 0}
-    - target: {fileID: 3483951526881758978, guid: 9d4beace0a130f64c98984a51a99a27d,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8227269948913105675, guid: 9d4beace0a130f64c98984a51a99a27d,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d4beace0a130f64c98984a51a99a27d, type: 3}

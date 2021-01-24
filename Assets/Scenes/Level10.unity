@@ -167,6 +167,7 @@ MonoBehaviour:
   chanceToBeOldGuy: 0.2
   minTimeDoctor: 40
   maxTimeDoctor: 40
+  immunityPeriod: 5
   actualTimeDoctor: 0
   eGameState: 0
   nextLevelName: Menu
@@ -318,6 +319,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3483951526493506009, guid: 9d4beace0a130f64c98984a51a99a27d,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 519420031}
     - target: {fileID: 3483951526493506010, guid: 9d4beace0a130f64c98984a51a99a27d,
         type: 3}
       propertyPath: m_LocalPosition.x

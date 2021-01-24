@@ -48,4 +48,9 @@ public class ButtonsOnClick : MonoBehaviour
     {
         SceneManager.LoadScene(GameController.instance.currentLevelName, LoadSceneMode.Single);
     }
+    public void NextLevel()
+    {
+        SceneManager.LoadScene(GameController.instance.nextLevelName, LoadSceneMode.Single);
+    }
+
 }

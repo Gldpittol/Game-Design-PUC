@@ -133,6 +133,7 @@ MonoBehaviour:
   isAsymptomatic: 0
   isRedInfected: 0
   isOldGuy: 0
+  circleOutline: {fileID: 610568798349674456}
 --- !u!50 &352762768
 Rigidbody2D:
   serializedVersion: 4
@@ -183,7 +184,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.04071814, y: -0.0407176}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -194,7 +195,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.94666666, y: 1.61}
+  m_Size: {x: 1.1095384, y: 1.8135897}
   m_EdgeRadius: 0
 --- !u!1001 &5345129162915980521
 PrefabInstance:
@@ -258,6 +259,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4779616289876481601, guid: 8747a6ff0328241459fc849be6748888,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4779616289876481631, guid: 8747a6ff0328241459fc849be6748888,
         type: 3}
       propertyPath: m_Name
@@ -279,6 +285,12 @@ GameObject:
 --- !u!4 &610568798523765417 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4779616289876481600, guid: 8747a6ff0328241459fc849be6748888,
+    type: 3}
+  m_PrefabInstance: {fileID: 5345129162915980521}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &610568798349674456 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4779616290042143537, guid: 8747a6ff0328241459fc849be6748888,
     type: 3}
   m_PrefabInstance: {fileID: 5345129162915980521}
   m_PrefabAsset: {fileID: 0}

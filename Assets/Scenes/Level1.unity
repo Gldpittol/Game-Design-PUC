@@ -195,7 +195,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minDelayBetweenSpawns: 1
   maxDelayBetweenSpawns: 5
-  chanceForInfectedSpawn: 0
+  chanceForInfectedSpawn: 0.5
   chanceForAsymptomaticSpawn: 0
   chanceForRedInfectedSpawn: 0
   timeToSurvive: 20
@@ -203,12 +203,13 @@ MonoBehaviour:
   maxInfected: 5
   hospitalCapacity: 0
   hospitalCareTime: 0
-  timeToInfection: 0
+  timeToInfection: 1
   AsymptomaticDelay: 0
   AsymptomaticTransformationDuration: 0
-  chanceToBeOldGuy: 0
-  minTimeDoctor: 30
-  maxTimeDoctor: 30
+  chanceToBeOldGuy: 1
+  minTimeDoctor: 5
+  maxTimeDoctor: 5
+  immunityPeriod: 2
   actualTimeDoctor: 0
   eGameState: 0
   nextLevelName: Level2
@@ -661,31 +662,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 13403629469333481, guid: 9d4beace0a130f64c98984a51a99a27d,
+    - target: {fileID: 3483951526493506009, guid: 9d4beace0a130f64c98984a51a99a27d,
         type: 3}
-      propertyPath: m_FontData.m_FontStyle
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1587594851742674019, guid: 9d4beace0a130f64c98984a51a99a27d,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -213
-      objectReference: {fileID: 0}
-    - target: {fileID: 1587594851742674019, guid: 9d4beace0a130f64c98984a51a99a27d,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 23.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2352212983314748729, guid: 9d4beace0a130f64c98984a51a99a27d,
-        type: 3}
-      propertyPath: m_Text
-      value: LET'S TRY
-      objectReference: {fileID: 0}
-    - target: {fileID: 3483951525043768646, guid: 9d4beace0a130f64c98984a51a99a27d,
-        type: 3}
-      propertyPath: m_Text
-      value: OK. YOU GOT IT!
-      objectReference: {fileID: 0}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 519420031}
     - target: {fileID: 3483951526493506010, guid: 9d4beace0a130f64c98984a51a99a27d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -795,36 +776,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: HUD
-      objectReference: {fileID: 0}
-    - target: {fileID: 4479866080151921316, guid: 9d4beace0a130f64c98984a51a99a27d,
-        type: 3}
-      propertyPath: m_FontData.m_Alignment
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4479866080151921316, guid: 9d4beace0a130f64c98984a51a99a27d,
-        type: 3}
-      propertyPath: m_FontData.m_FontSize
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 4479866080151921316, guid: 9d4beace0a130f64c98984a51a99a27d,
-        type: 3}
-      propertyPath: m_Text
-      value: Click, Hold and Drop
-      objectReference: {fileID: 0}
-    - target: {fileID: 5397268086402594790, guid: 9d4beace0a130f64c98984a51a99a27d,
-        type: 3}
-      propertyPath: m_Name
-      value: TutMessage
-      objectReference: {fileID: 0}
-    - target: {fileID: 5397268086402594790, guid: 9d4beace0a130f64c98984a51a99a27d,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6449854656157287336, guid: 9d4beace0a130f64c98984a51a99a27d,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d4beace0a130f64c98984a51a99a27d, type: 3}

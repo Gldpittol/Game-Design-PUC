@@ -494,7 +494,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: YOU WON
+  m_Text: OK. YOU GOT IT!
 --- !u!1 &3483951525239576738
 GameObject:
   m_ObjectHideFlags: 0
@@ -2445,7 +2445,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1587594851742674019
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2462,7 +2462,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -364, y: 50}
+  m_AnchoredPosition: {x: -213, y: 23.5}
   m_SizeDelta: {x: 350, y: 47}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5499523861296651963
@@ -2494,18 +2494,18 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 40
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 200
-    m_Alignment: 4
+    m_Alignment: 5
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Click, Hold and Drag
+  m_Text: Click, Hold and Drop
 --- !u!1 &5728365676514367601
 GameObject:
   m_ObjectHideFlags: 0
@@ -2541,7 +2541,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 406, y: -51.6}
+  m_AnchoredPosition: {x: 406, y: -51.600006}
   m_SizeDelta: {x: 850, y: 136.84027}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2963954829844459059
@@ -3080,7 +3080,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 8644143656967958845}
-        m_MethodName: ContinueGame
+        m_MethodName: NextLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3138,7 +3138,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -284.9, y: -51.6}
+  m_AnchoredPosition: {x: -284.89996, y: -51.600006}
   m_SizeDelta: {x: 600, y: 136.84027}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9187278082876655162
@@ -3255,7 +3255,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Nice move! You avoided contamination!
+  m_Text: LET'S TRY
 --- !u!1 &8437359137916800601
 GameObject:
   m_ObjectHideFlags: 0

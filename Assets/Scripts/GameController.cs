@@ -33,7 +33,7 @@ public class GameController : MonoBehaviour
     public float chanceToBeOldGuy;
     public float minTimeDoctor;
     public float maxTimeDoctor;
-    
+    public float immunityPeriod = 5f;
 
     private float currentTime;
     [HideInInspector]public float actualTimeDoctor;

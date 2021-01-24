@@ -22,9 +22,14 @@ public class Person : MonoBehaviour
     public bool isAsymptomatic = false;
     public bool isRedInfected = false;
     public bool isOldGuy = false;
+
+    private Animator animator;
+
+    public GameObject circleOutline;
+    private float currentImmunityTime = 0f;
     private void Start()
     {
-        //cc = GetComponent<CircleCollider2D>();
+        animator = GetComponent<Animator>();
         cc.enabled = !cc.enabled;
 
         InitializeTargets();
@@ -34,7 +39,9 @@ public class Person : MonoBehaviour
 
     private void Update()
     {
-        if((CompareTag("Person")))
+        currentImmunityTime -= Time.deltaTime;
+
+        if((CompareTag("Person") && currentImmunityTime <= 0))
         {
             if (infectedCollisionAmt > 0)
             {
@@ -100,7 +107,7 @@ public class Person : MonoBehaviour
             infectedCollisionAmt++;
         }
 
-        if (collision.CompareTag("RedInfected") && (CompareTag("Person") || CompareTag("Asymptomatic")))
+        if (collision.CompareTag("RedInfected") && (CompareTag("Person") || CompareTag("Asymptomatic")) && currentImmunityTime <= 0)
         {
             isRedInfected = true;
             StartSelfInfectionFunction();
@@ -132,6 +139,8 @@ public class Person : MonoBehaviour
     {
         isOldGuy = true;
         cc.enabled = !cc.enabled;
+        animator = GetComponent<Animator>();
+        animator.Play("Person@OldGuy");
     }
 
     public void EnterHospital()
@@ -233,12 +242,19 @@ public class Person : MonoBehaviour
 
     public void CurePerson()
     {
+        currentImmunityTime = GameController.instance.immunityPeriod;
         gameObject.tag = "Person";
         ContagionCircle.SetActive(false);
         if (!isOldGuy) cc.enabled = !cc.enabled;
         sr.color = Color.white;
         GameController.instance.currentInfected -= 1;
         infectedTime = 0;
+
+        if(isOldGuy) animator.Play("Person@OldGuy");
+        else
+        {
+          animator.Play("PersonWalk");
+        }
     }
 
     public IEnumerator StartSelfInfectionRoutine()
@@ -252,7 +268,14 @@ public class Person : MonoBehaviour
             GameController.instance.currentInfected += 1;
             sr.color = Color.green;
             ContagionCircle.SetActive(true);
-            if(!isOldGuy) cc.enabled = !cc.enabled;
+            SpriteRenderer temp = ContagionCircle.GetComponent<SpriteRenderer>();
+            temp.color = Color.green;
+            temp.color = new Color(temp.color.r, temp.color.g, temp.color.b, 0.4f);
+            temp = circleOutline.GetComponent<SpriteRenderer>();
+            temp.color = Color.green;
+            temp.color = new Color(temp.color.r, temp.color.g, temp.color.b, 0.4f);
+
+            if (!isOldGuy) cc.enabled = !cc.enabled;
         }
 
         else
@@ -264,9 +287,19 @@ public class Person : MonoBehaviour
             SpriteRenderer temp = ContagionCircle.GetComponent<SpriteRenderer>();
             temp.color = Color.red;
             temp.color = new Color(temp.color.r, temp.color.g, temp.color.b, 0.4f);
+            temp = circleOutline.GetComponent<SpriteRenderer>();
+            temp.color = Color.red;
+            temp.color = new Color(temp.color.r, temp.color.g, temp.color.b, 0.4f);
+
             if (!isOldGuy) cc.enabled = !cc.enabled;
         }
-        
+
+        if (isOldGuy) animator.Play("Person@OldGuyInfected");
+        else
+        {
+          animator.Play("Person@Infected");
+        }
+
         //if(isDragging)
         //{
         //    isDragging = false;
@@ -298,11 +331,23 @@ public class Person : MonoBehaviour
             ContagionCircle.SetActive(true);
             SpriteRenderer temp = ContagionCircle.GetComponent<SpriteRenderer>();
             temp.color = Color.green;
-            temp.color = new Color(temp.color.r, temp.color.g, temp.color.b, 0.4f); cc.enabled = !cc.enabled;
+            temp.color = new Color(temp.color.r, temp.color.g, temp.color.b, 0.4f);
+            if (!isOldGuy) cc.enabled = !cc.enabled;
+            temp = circleOutline.GetComponent<SpriteRenderer>();
+            temp.color = Color.green;
+            temp.color = new Color(temp.color.r, temp.color.g, temp.color.b, 0.4f);
 
             GameController.instance.currentInfected += 1;
             tag = "Infected";
+            if (isOldGuy) animator.Play("Person@OldGuyInfected");
+            else
+            {
+                animator.Play("Person@Infected");
+            }
+
         }
+
+
 
         else yield return null;
     }

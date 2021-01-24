@@ -119,6 +119,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hospital
       objectReference: {fileID: 0}
+    - target: {fileID: 3417570906584552420, guid: bf542812b5a9c8642a87acfc5d752112,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3417570906584552424, guid: bf542812b5a9c8642a87acfc5d752112,
         type: 3}
       propertyPath: m_LocalPosition.x

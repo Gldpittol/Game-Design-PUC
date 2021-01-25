@@ -24,7 +24,7 @@ public class DoctorScript : MonoBehaviour
         else transform.position = new Vector2(transform.position.x - speed * Time.deltaTime, transform.position.y);
 
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if(collision.CompareTag("Infected") || collision.CompareTag("RedInfected"))
         {

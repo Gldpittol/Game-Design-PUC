@@ -206,7 +206,7 @@ MonoBehaviour:
   timeToInfection: 1
   AsymptomaticDelay: 0
   AsymptomaticTransformationDuration: 0
-  chanceToBeOldGuy: 0
+  chanceToBeOldGuy: 1
   minTimeDoctor: 4
   maxTimeDoctor: 4
   immunityPeriod: 2

@@ -26,6 +26,7 @@ public class Person : MonoBehaviour
     private Animator animator;
 
     public GameObject circleOutline;
+    public GameObject visualFeedback;
     private float currentImmunityTime = 0f;
 
     private List<Collider2D> listCollider = new List<Collider2D>();
@@ -150,6 +151,7 @@ public class Person : MonoBehaviour
         cc.enabled = !cc.enabled;
         animator = GetComponent<Animator>();
         animator.Play("Person@OldGuy");
+        visualFeedback.SetActive(true);
     }
 
     public void EnterHospital()
@@ -259,15 +261,20 @@ public class Person : MonoBehaviour
         GameController.instance.currentInfected -= 1;
         infectedTime = 0;
 
-        if(isOldGuy) animator.Play("Person@OldGuy");
+        if (isOldGuy)
+        {
+            animator.Play("Person@OldGuy");
+            visualFeedback.SetActive(true);
+        }
         else
         {
-          animator.Play("PersonWalk");
+            animator.Play("PersonWalk");
         }
     }
 
     public IEnumerator StartSelfInfectionRoutine()
     {
+        visualFeedback.SetActive(false);
         infectedTime = 0;
         yield return null;
 
@@ -326,6 +333,7 @@ public class Person : MonoBehaviour
     public IEnumerator AsympTransform()
     {
         yield return new WaitForSeconds(GameController.instance.AsymptomaticDelay);
+        visualFeedback.SetActive(false);
 
         if (this.CompareTag("Asymptomatic"))
         {

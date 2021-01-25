@@ -27,6 +27,8 @@ public class Person : MonoBehaviour
 
     public GameObject circleOutline;
     private float currentImmunityTime = 0f;
+
+    private List<Collider2D> listCollider = new List<Collider2D>();
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -40,6 +42,8 @@ public class Person : MonoBehaviour
     private void Update()
     {
         currentImmunityTime -= Time.deltaTime;
+
+        CheckCollisions();
 
         if((CompareTag("Person") && currentImmunityTime <= 0))
         {
@@ -101,10 +105,12 @@ public class Person : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        listCollider.Add(collision);
+
         if(collision.CompareTag("Infected") && (CompareTag("Person") || CompareTag("Asymptomatic")))
         {
             //StartSelfInfectionFunction();
-            infectedCollisionAmt++;
+            //infectedCollisionAmt++;
         }
 
         if (collision.CompareTag("RedInfected") && (CompareTag("Person") || CompareTag("Asymptomatic")) && currentImmunityTime <= 0)
@@ -115,10 +121,13 @@ public class Person : MonoBehaviour
     }
      private void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.CompareTag("Infected") && infectedCollisionAmt > 0)
+
+        listCollider.Remove(collision);
+
+        if (collision.CompareTag("Infected") && infectedCollisionAmt > 0)
         {
             //StartSelfInfectionFunction();
-            infectedCollisionAmt--;
+            //infectedCollisionAmt--;
         }
     }
 
@@ -352,5 +361,16 @@ public class Person : MonoBehaviour
         else yield return null;
     }
      
+    public void CheckCollisions()
+    {
+        infectedCollisionAmt = 0;
 
+        for(int i = 0; i < listCollider.Count; i++)
+        {
+            if(listCollider[i].gameObject.CompareTag("Infected"))
+            {
+                infectedCollisionAmt++;
+            }
+        }
+    }
 }

@@ -12,7 +12,11 @@ public class DoctorScript : MonoBehaviour
         originalPos = transform.position;
 
         if (originalPos.x < 0) goRight = true;
-        else goRight = false;
+        else
+        {
+            goRight = false;
+            GetComponent<SpriteRenderer>().flipX = true;
+        }
     }
     private void Update()
     {

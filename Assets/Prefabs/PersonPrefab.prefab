@@ -135,6 +135,7 @@ MonoBehaviour:
   isRedInfected: 0
   isOldGuy: 0
   circleOutline: {fileID: 610568798349674456}
+  visualFeedback: {fileID: 9124926432081262984}
 --- !u!50 &352762768
 Rigidbody2D:
   serializedVersion: 4
@@ -214,7 +215,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4048707944518094792
 Transform:
   m_ObjectHideFlags: 0

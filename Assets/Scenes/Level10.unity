@@ -152,15 +152,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minDelayBetweenSpawns: 1
-  maxDelayBetweenSpawns: 3
+  maxDelayBetweenSpawns: 4
   chanceForInfectedSpawn: 0
   chanceForAsymptomaticSpawn: 0.5
   chanceForRedInfectedSpawn: 0
-  timeToSurvive: 30
+  timeToSurvive: 40
   maxPeople: 10
   maxInfected: 6
-  hospitalCapacity: 4
-  hospitalCareTime: 5
+  hospitalCapacity: 5
+  hospitalCareTime: 3
   timeToInfection: 0.6
   AsymptomaticDelay: 2
   AsymptomaticTransformationDuration: 0.4

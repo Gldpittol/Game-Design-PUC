@@ -195,7 +195,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minDelayBetweenSpawns: 1
   maxDelayBetweenSpawns: 5
-  chanceForInfectedSpawn: 0.5
+  chanceForInfectedSpawn: 0
   chanceForAsymptomaticSpawn: 0
   chanceForRedInfectedSpawn: 0
   timeToSurvive: 20
@@ -203,13 +203,13 @@ MonoBehaviour:
   maxInfected: 5
   hospitalCapacity: 0
   hospitalCareTime: 0
-  timeToInfection: 1
+  timeToInfection: 0
   AsymptomaticDelay: 0
   AsymptomaticTransformationDuration: 0
-  chanceToBeOldGuy: 1
-  minTimeDoctor: 5
-  maxTimeDoctor: 5
-  immunityPeriod: 2
+  chanceToBeOldGuy: 0
+  minTimeDoctor: 0
+  maxTimeDoctor: 100
+  immunityPeriod: 100
   actualTimeDoctor: 0
   eGameState: 0
   nextLevelName: Level2
@@ -662,6 +662,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2352212983314748729, guid: 9d4beace0a130f64c98984a51a99a27d,
+        type: 3}
+      propertyPath: m_Text
+      value: Are you ready?!
+      objectReference: {fileID: 0}
+    - target: {fileID: 3483951524963307013, guid: 9d4beace0a130f64c98984a51a99a27d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3483951525043768646, guid: 9d4beace0a130f64c98984a51a99a27d,
+        type: 3}
+      propertyPath: m_Text
+      value: YOU GOT IT
+      objectReference: {fileID: 0}
     - target: {fileID: 3483951526493506009, guid: 9d4beace0a130f64c98984a51a99a27d,
         type: 3}
       propertyPath: m_Camera
@@ -776,6 +791,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: HUD
+      objectReference: {fileID: 0}
+    - target: {fileID: 5397268086402594790, guid: 9d4beace0a130f64c98984a51a99a27d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d4beace0a130f64c98984a51a99a27d, type: 3}

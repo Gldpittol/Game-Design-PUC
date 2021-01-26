@@ -7,7 +7,8 @@ public enum EGameState
 {
     GamePlay,
     Victory,
-    GameOver
+    GameOver,
+    Start
 }
 
 
@@ -36,14 +37,14 @@ public class GameController : MonoBehaviour
     public float immunityPeriod = 5f;
 
     private float currentTime;
-    [HideInInspector]public float actualTimeDoctor;
+    [HideInInspector] public float actualTimeDoctor;
     public EGameState eGameState = EGameState.GamePlay;
     public string nextLevelName;
     public string currentLevelName;
 
-    [HideInInspector]public float currentInfected = 0;
+    [HideInInspector] public float currentInfected = 0;
     [HideInInspector] public float currentPeople = 0;
-    
+
     [HideInInspector] public float currentInHospital = 0;
 
     [Header("Texts")]
@@ -62,20 +63,24 @@ public class GameController : MonoBehaviour
 
     private bool isOptionsOnScreen;
 
+    public int randomSeed;
+
     private void Awake()
     {
-        Time.timeScale = 1f;
+        Time.timeScale = 0f;
         instance = this;
         actualTimeDoctor = Random.Range(minTimeDoctor, maxTimeDoctor);
+        eGameState = EGameState.Start;
+
     }
 
     private void Update()
     {
-        if(eGameState == EGameState.GamePlay)
+        if (eGameState == EGameState.GamePlay)
         {
-            currentTime += Time.deltaTime;    
-            
-            if(currentTime > actualTimeDoctor)
+            currentTime += Time.deltaTime;
+
+            if (currentTime > actualTimeDoctor)
             {
                 Spawner.instance.SpawnDoctor();
                 actualTimeDoctor = 999999f;
@@ -85,9 +90,20 @@ public class GameController : MonoBehaviour
             timeRemainingText.text = /*"Survive For: " + */(timeToSurvive - currentTime).ToString("F2") + "s";
             inFectedText.text = currentInfected + " / " + maxInfected/* + " Infected"*/;
             totalPeopleText.text = currentPeople.ToString() /* + " Moving Around"*/;
-            onHospitalText.text = /*"Current in Hospital: " + */currentInHospital + " / " + hospitalCapacity; 
+            onHospitalText.text = /*"Current in Hospital: " + */currentInHospital + " / " + hospitalCapacity;
 
-            if(timeUntilNextVacancy > 0)
+
+            if (currentInHospital == hospitalCapacity)
+            {
+                onHospitalText.color = Color.red;
+            }
+
+            if (currentInHospital != hospitalCapacity)
+            {
+                onHospitalText.color = Color.white;
+            }
+
+            if (timeUntilNextVacancy > 0)
             {
                 timeUntilNextVacancy -= Time.deltaTime;
                 nextVacancyText.text = /*"Time Until Next Vancancy: " + */timeUntilNextVacancy.ToString("F2") + "s";
@@ -114,7 +130,7 @@ public class GameController : MonoBehaviour
             }
 
 
-            if(Input.GetKeyDown(KeyCode.Escape))
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
                 if (!isOptionsOnScreen)
                 {
@@ -132,11 +148,11 @@ public class GameController : MonoBehaviour
 
 
         }
-        else if(eGameState == EGameState.GameOver)
+        else if (eGameState == EGameState.GameOver)
         {
             Time.timeScale = 0f;
             youLoseCanvas.gameObject.SetActive(true);
-            if(Input.GetKeyDown(KeyCode.R))
+            if (Input.GetKeyDown(KeyCode.R))
             {
                 LoadNewLevel(currentLevelName);
             }
@@ -155,7 +171,7 @@ public class GameController : MonoBehaviour
             {
                 LoadNewLevel(nextLevelName);
             }
-            if(Input.GetKeyDown(KeyCode.Escape))
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
                 Application.Quit();
             }
@@ -171,7 +187,7 @@ public class GameController : MonoBehaviour
     {
         timeUntilNextVacancy = hospitalCareTime;
         yield return new WaitForSeconds(hospitalCareTime);
-        if(currentInHospital > 0) currentInHospital -= 1;
+        if (currentInHospital > 0) currentInHospital -= 1;
         if (currentInHospital > 0) StartCoroutine(FreeHospitalRoutine());
     }
 

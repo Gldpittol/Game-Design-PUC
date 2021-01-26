@@ -225,6 +225,7 @@ MonoBehaviour:
   youWinCanvas: {fileID: 253538329}
   youLoseCanvas: {fileID: 1675917156}
   optionsCanvas: {fileID: 720989816}
+  randomSeed: 6590
 --- !u!4 &490267849
 Transform:
   m_ObjectHideFlags: 0
@@ -452,6 +453,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: Level 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3154491322244872229, guid: 9d4beace0a130f64c98984a51a99a27d,
+        type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3154491322244872229, guid: 9d4beace0a130f64c98984a51a99a27d,
+        type: 3}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3154491322244872229, guid: 9d4beace0a130f64c98984a51a99a27d,
+        type: 3}
+      propertyPath: m_FillMethod
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3483951524963307013, guid: 9d4beace0a130f64c98984a51a99a27d,
         type: 3}

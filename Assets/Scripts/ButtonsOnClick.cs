@@ -20,6 +20,12 @@ public class ButtonsOnClick : MonoBehaviour
         Application.Quit();
     }
 
+    public void StartLevel()
+    {
+        Time.timeScale = 1f;
+        GameController.instance.eGameState = EGameState.GamePlay;
+    }
+
     public void StartGame()
     {
         SceneManager.LoadScene("Level1", LoadSceneMode.Single);

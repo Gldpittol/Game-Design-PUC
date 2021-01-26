@@ -9,6 +9,7 @@ public class Spawner : MonoBehaviour
     private GameObject temp;
     public static Spawner instance;
     public Vector2 doctorSpawnPos;
+
     private void Awake()
     {
         instance = this;
@@ -16,14 +17,24 @@ public class Spawner : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(SpawnRoutine());   
+        StartCoroutine(SpawnRoutine());
     }
 
     public IEnumerator SpawnRoutine()
     {
+        while (GameController.instance.eGameState != EGameState.GamePlay)
+            yield return null;
+
         if (GameController.instance.eGameState == EGameState.GamePlay && GameController.instance.currentPeople < GameController.instance.maxPeople - 1)
         {
             yield return new WaitForSeconds(Random.Range(GameController.instance.minDelayBetweenSpawns, GameController.instance.maxDelayBetweenSpawns));
+
+            if (GameController.instance.randomSeed != 0)
+            {
+                Random.InitState(GameController.instance.randomSeed);
+                GameController.instance.randomSeed--;
+            }
+
 
             bool instantiateLeft = (Random.value < 0.5f);
 
@@ -45,6 +56,7 @@ public class Spawner : MonoBehaviour
             }
             StartCoroutine(SpawnRoutine());
         }
+
     }
 
     public void SpawnDoctor()

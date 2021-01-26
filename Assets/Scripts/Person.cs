@@ -27,12 +27,16 @@ public class Person : MonoBehaviour
 
     public GameObject circleOutline;
     public GameObject visualFeedback;
+    public GameObject immunityFeedback;
+
     private float currentImmunityTime = 0f;
 
     private List<Collider2D> listCollider = new List<Collider2D>();
     private void Start()
     {
         speed = Random.Range(speed * 0.5f, speed * 1.5f);
+
+        immunityFeedback.SetActive(false);
 
         animator = GetComponent<Animator>();
         cc.enabled = !cc.enabled;
@@ -88,6 +92,9 @@ public class Person : MonoBehaviour
                 transform.Translate(mousePosition);
             }
         }
+        if(currentImmunityTime > 0)
+            immunityFeedback.SetActive(true);
+        else immunityFeedback.SetActive(false);
     }
 
     private void OnMouseDown()

@@ -207,9 +207,9 @@ MonoBehaviour:
   AsymptomaticDelay: 0
   AsymptomaticTransformationDuration: 0
   chanceToBeOldGuy: 0
-  minTimeDoctor: 0
+  minTimeDoctor: 100
   maxTimeDoctor: 100
-  immunityPeriod: 100
+  immunityPeriod: 0
   actualTimeDoctor: 0
   eGameState: 0
   nextLevelName: Level2
@@ -791,6 +791,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: HUD
+      objectReference: {fileID: 0}
+    - target: {fileID: 4479866080151921316, guid: 9d4beace0a130f64c98984a51a99a27d,
+        type: 3}
+      propertyPath: m_Text
+      value: Click, Drag and Drop
       objectReference: {fileID: 0}
     - target: {fileID: 5397268086402594790, guid: 9d4beace0a130f64c98984a51a99a27d,
         type: 3}

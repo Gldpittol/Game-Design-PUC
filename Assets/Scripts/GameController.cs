@@ -98,6 +98,9 @@ public class GameController : MonoBehaviour
                 nextVacancyText.text = /*"Time Until Next Vancancy: -"*/ "-";
             }
 
+            if (currentInfected > (maxInfected * 0.75)) inFectedText.color = Color.red;
+            else inFectedText.color = Color.white;
+
             if (currentInfected >= maxInfected)
             {
                 eGameState = EGameState.GameOver;

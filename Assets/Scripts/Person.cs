@@ -32,6 +32,8 @@ public class Person : MonoBehaviour
     private List<Collider2D> listCollider = new List<Collider2D>();
     private void Start()
     {
+        speed = Random.Range(speed * 0.5f, speed * 1.5f);
+
         animator = GetComponent<Animator>();
         cc.enabled = !cc.enabled;
 

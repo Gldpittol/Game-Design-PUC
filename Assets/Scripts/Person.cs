@@ -32,6 +32,7 @@ public class Person : MonoBehaviour
     private float currentImmunityTime = 0f;
 
     private List<Collider2D> listCollider = new List<Collider2D>();
+
     private void Start()
     {
         speed = Random.Range(speed * 0.5f, speed * 1.5f);

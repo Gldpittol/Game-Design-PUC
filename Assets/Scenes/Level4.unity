@@ -165,8 +165,8 @@ MonoBehaviour:
   AsymptomaticDelay: 2
   AsymptomaticTransformationDuration: 1.3
   chanceToBeOldGuy: 0
-  minTimeDoctor: 30
-  maxTimeDoctor: 30
+  minTimeDoctor: 20
+  maxTimeDoctor: 24
   immunityPeriod: 5
   actualTimeDoctor: 0
   eGameState: 0

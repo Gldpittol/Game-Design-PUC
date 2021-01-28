@@ -160,13 +160,13 @@ MonoBehaviour:
   maxPeople: 25
   maxInfected: 15
   hospitalCapacity: 5
-  hospitalCareTime: 10
+  hospitalCareTime: 5
   timeToInfection: 0.6
   AsymptomaticDelay: 2
   AsymptomaticTransformationDuration: 0.5
   chanceToBeOldGuy: 0.2
-  minTimeDoctor: 40
-  maxTimeDoctor: 40
+  minTimeDoctor: 30
+  maxTimeDoctor: 30
   immunityPeriod: 5
   actualTimeDoctor: 0
   eGameState: 0
@@ -214,7 +214,7 @@ MonoBehaviour:
     type: 3}
   doctorPrefab: {fileID: 6795253309421184256, guid: 4917b4fee182b7f4a85ea85793aff900,
     type: 3}
-  doctorSpawnPos: {x: 10, y: 0}
+  doctorSpawnPos: {x: -10, y: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

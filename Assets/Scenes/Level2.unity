@@ -194,7 +194,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minDelayBetweenSpawns: 1
-  maxDelayBetweenSpawns: 3
+  maxDelayBetweenSpawns: 5
   chanceForInfectedSpawn: 0
   chanceForAsymptomaticSpawn: 0.4
   chanceForRedInfectedSpawn: 0

@@ -154,17 +154,17 @@ MonoBehaviour:
   minDelayBetweenSpawns: 1
   maxDelayBetweenSpawns: 3
   chanceForInfectedSpawn: 0
-  chanceForAsymptomaticSpawn: 0.6
+  chanceForAsymptomaticSpawn: 0.5
   chanceForRedInfectedSpawn: 0
   timeToSurvive: 60
   maxPeople: 25
-  maxInfected: 20
-  hospitalCapacity: 0
-  hospitalCareTime: 0
+  maxInfected: 15
+  hospitalCapacity: 7
+  hospitalCareTime: 4
   timeToInfection: 0.6
-  AsymptomaticDelay: 2
-  AsymptomaticTransformationDuration: 0.4
-  chanceToBeOldGuy: 0.3
+  AsymptomaticDelay: 4
+  AsymptomaticTransformationDuration: 0.8
+  chanceToBeOldGuy: 0.4
   minTimeDoctor: 40
   maxTimeDoctor: 50
   immunityPeriod: 5
@@ -183,6 +183,7 @@ MonoBehaviour:
   youWinCanvas: {fileID: 608971537}
   youLoseCanvas: {fileID: 608971538}
   optionsCanvas: {fileID: 608971536}
+  randomSeed: 0
 --- !u!4 &490267849
 Transform:
   m_ObjectHideFlags: 0
@@ -308,6 +309,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: Level 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3449827839473332929, guid: 9d4beace0a130f64c98984a51a99a27d,
+        type: 3}
+      propertyPath: m_Text
+      value: Survive the infection with at least 10 healthy
       objectReference: {fileID: 0}
     - target: {fileID: 3483951526493506009, guid: 9d4beace0a130f64c98984a51a99a27d,
         type: 3}
@@ -580,17 +586,17 @@ PrefabInstance:
     - target: {fileID: 6646280000951581467, guid: 522b2f25393295747822e1c8a7580393,
         type: 3}
       propertyPath: m_Color.r
-      value: 0.7830189
+      value: 0.30131015
       objectReference: {fileID: 0}
     - target: {fileID: 6646280000951581467, guid: 522b2f25393295747822e1c8a7580393,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.7093533
+      value: 0.5849056
       objectReference: {fileID: 0}
     - target: {fileID: 6646280000951581467, guid: 522b2f25393295747822e1c8a7580393,
         type: 3}
       propertyPath: m_Color.b
-      value: 0.24007656
+      value: 0.26762193
       objectReference: {fileID: 0}
     - target: {fileID: 6646280001513598624, guid: 522b2f25393295747822e1c8a7580393,
         type: 3}
@@ -660,17 +666,17 @@ PrefabInstance:
     - target: {fileID: 6646280002346003305, guid: 522b2f25393295747822e1c8a7580393,
         type: 3}
       propertyPath: m_Color.r
-      value: 0.72156864
+      value: 0.3019608
       objectReference: {fileID: 0}
     - target: {fileID: 6646280002346003305, guid: 522b2f25393295747822e1c8a7580393,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.67168355
+      value: 0.5882353
       objectReference: {fileID: 0}
     - target: {fileID: 6646280002346003305, guid: 522b2f25393295747822e1c8a7580393,
         type: 3}
       propertyPath: m_Color.b
-      value: 0.17225882
+      value: 0.27058825
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 522b2f25393295747822e1c8a7580393, type: 3}

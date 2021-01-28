@@ -152,18 +152,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minDelayBetweenSpawns: 1
-  maxDelayBetweenSpawns: 3
+  maxDelayBetweenSpawns: 4
   chanceForInfectedSpawn: 0
   chanceForAsymptomaticSpawn: 0.6
   chanceForRedInfectedSpawn: 0
   timeToSurvive: 50
   maxPeople: 20
-  maxInfected: 20
+  maxInfected: 15
   hospitalCapacity: 0
   hospitalCareTime: 0
   timeToInfection: 0.6
-  AsymptomaticDelay: 2
-  AsymptomaticTransformationDuration: 0.5
+  AsymptomaticDelay: 3
+  AsymptomaticTransformationDuration: 1
   chanceToBeOldGuy: 0
   minTimeDoctor: 30
   maxTimeDoctor: 30
@@ -183,6 +183,7 @@ MonoBehaviour:
   youWinCanvas: {fileID: 608971537}
   youLoseCanvas: {fileID: 608971538}
   optionsCanvas: {fileID: 608971536}
+  randomSeed: 0
 --- !u!4 &490267849
 Transform:
   m_ObjectHideFlags: 0
@@ -308,6 +309,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: Level 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3449827839473332929, guid: 9d4beace0a130f64c98984a51a99a27d,
+        type: 3}
+      propertyPath: m_Text
+      value: Survive the infection with at least 5 healthy
       objectReference: {fileID: 0}
     - target: {fileID: 3483951526493506009, guid: 9d4beace0a130f64c98984a51a99a27d,
         type: 3}
@@ -580,17 +586,17 @@ PrefabInstance:
     - target: {fileID: 6646280000951581467, guid: 522b2f25393295747822e1c8a7580393,
         type: 3}
       propertyPath: m_Color.r
-      value: 0.6603774
+      value: 0.8018868
       objectReference: {fileID: 0}
     - target: {fileID: 6646280000951581467, guid: 522b2f25393295747822e1c8a7580393,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.15886435
+      value: 0.11725702
       objectReference: {fileID: 0}
     - target: {fileID: 6646280000951581467, guid: 522b2f25393295747822e1c8a7580393,
         type: 3}
       propertyPath: m_Color.b
-      value: 0.1821133
+      value: 0.14421093
       objectReference: {fileID: 0}
     - target: {fileID: 6646280001513598624, guid: 522b2f25393295747822e1c8a7580393,
         type: 3}

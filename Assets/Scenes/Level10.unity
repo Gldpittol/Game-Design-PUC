@@ -152,21 +152,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minDelayBetweenSpawns: 1
-  maxDelayBetweenSpawns: 4
+  maxDelayBetweenSpawns: 3
   chanceForInfectedSpawn: 0
   chanceForAsymptomaticSpawn: 0.5
-  chanceForRedInfectedSpawn: 0
+  chanceForRedInfectedSpawn: 0.2
   timeToSurvive: 40
   maxPeople: 10
-  maxInfected: 6
+  maxInfected: 7
   hospitalCapacity: 5
-  hospitalCareTime: 3
+  hospitalCareTime: 5
   timeToInfection: 0.6
   AsymptomaticDelay: 2
-  AsymptomaticTransformationDuration: 0.4
-  chanceToBeOldGuy: 0.2
-  minTimeDoctor: 40
-  maxTimeDoctor: 40
+  AsymptomaticTransformationDuration: 0.5
+  chanceToBeOldGuy: 0.1
+  minTimeDoctor: 20
+  maxTimeDoctor: 30
   immunityPeriod: 5
   actualTimeDoctor: 0
   eGameState: 0
@@ -183,6 +183,7 @@ MonoBehaviour:
   youWinCanvas: {fileID: 608971537}
   youLoseCanvas: {fileID: 608971538}
   optionsCanvas: {fileID: 608971536}
+  randomSeed: 0
 --- !u!4 &490267849
 Transform:
   m_ObjectHideFlags: 0
@@ -308,6 +309,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: Level 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3449827839473332929, guid: 9d4beace0a130f64c98984a51a99a27d,
+        type: 3}
+      propertyPath: m_Text
+      value: Survive the infection with at least 3 healthy
       objectReference: {fileID: 0}
     - target: {fileID: 3483951524940031010, guid: 9d4beace0a130f64c98984a51a99a27d,
         type: 3}

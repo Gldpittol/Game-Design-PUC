@@ -205,10 +205,10 @@ MonoBehaviour:
   hospitalCareTime: 0
   timeToInfection: 0.8
   AsymptomaticDelay: 3
-  AsymptomaticTransformationDuration: 0.8
+  AsymptomaticTransformationDuration: 1.5
   chanceToBeOldGuy: 0
-  minTimeDoctor: 30
-  maxTimeDoctor: 30
+  minTimeDoctor: 100
+  maxTimeDoctor: 100
   immunityPeriod: 5
   actualTimeDoctor: 0
   eGameState: 0
@@ -468,6 +468,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_FillMethod
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3449827839473332929, guid: 9d4beace0a130f64c98984a51a99a27d,
+        type: 3}
+      propertyPath: m_Text
+      value: Survive the infection with at least 1 healthy
       objectReference: {fileID: 0}
     - target: {fileID: 3483951524963307013, guid: 9d4beace0a130f64c98984a51a99a27d,
         type: 3}

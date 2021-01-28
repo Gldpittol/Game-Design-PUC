@@ -194,7 +194,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minDelayBetweenSpawns: 1
-  maxDelayBetweenSpawns: 5
+  maxDelayBetweenSpawns: 3
   chanceForInfectedSpawn: 0
   chanceForAsymptomaticSpawn: 0
   chanceForRedInfectedSpawn: 0
@@ -225,6 +225,7 @@ MonoBehaviour:
   youWinCanvas: {fileID: 253538329}
   youLoseCanvas: {fileID: 1675917156}
   optionsCanvas: {fileID: 720989816}
+  randomSeed: 0
 --- !u!4 &490267849
 Transform:
   m_ObjectHideFlags: 0
@@ -666,6 +667,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: Are you ready?!
+      objectReference: {fileID: 0}
+    - target: {fileID: 3449827839473332929, guid: 9d4beace0a130f64c98984a51a99a27d,
+        type: 3}
+      propertyPath: m_Text
+      value: Survive the infection with at least 1 healthy
       objectReference: {fileID: 0}
     - target: {fileID: 3483951524963307013, guid: 9d4beace0a130f64c98984a51a99a27d,
         type: 3}

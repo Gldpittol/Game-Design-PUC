@@ -155,12 +155,12 @@ MonoBehaviour:
   maxDelayBetweenSpawns: 3
   chanceForInfectedSpawn: 0
   chanceForAsymptomaticSpawn: 0.5
-  chanceForRedInfectedSpawn: 0.2
-  timeToSurvive: 40
-  maxPeople: 10
-  maxInfected: 7
+  chanceForRedInfectedSpawn: 0.3
+  timeToSurvive: 60
+  maxPeople: 30
+  maxInfected: 15
   hospitalCapacity: 5
-  hospitalCareTime: 5
+  hospitalCareTime: 10
   timeToInfection: 0.6
   AsymptomaticDelay: 2
   AsymptomaticTransformationDuration: 0.5
@@ -440,6 +440,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: HUD
       objectReference: {fileID: 0}
+    - target: {fileID: 3483951526493506014, guid: 9d4beace0a130f64c98984a51a99a27d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8227269948913105675, guid: 9d4beace0a130f64c98984a51a99a27d,
         type: 3}
       propertyPath: m_IsActive
@@ -601,7 +606,7 @@ PrefabInstance:
     - target: {fileID: 6646280000951581467, guid: 522b2f25393295747822e1c8a7580393,
         type: 3}
       propertyPath: m_Color.r
-      value: 0.10453009
+      value: 0.7647059
       objectReference: {fileID: 0}
     - target: {fileID: 6646280000951581467, guid: 522b2f25393295747822e1c8a7580393,
         type: 3}
@@ -676,22 +681,22 @@ PrefabInstance:
     - target: {fileID: 6646280002093078613, guid: 522b2f25393295747822e1c8a7580393,
         type: 3}
       propertyPath: m_Offset.y
-      value: 0.6790583
+      value: 0.1824801
       objectReference: {fileID: 0}
     - target: {fileID: 6646280002093078613, guid: 522b2f25393295747822e1c8a7580393,
         type: 3}
       propertyPath: m_Size.y
-      value: 6.617086
+      value: 3.93683
       objectReference: {fileID: 0}
     - target: {fileID: 6646280002093078613, guid: 522b2f25393295747822e1c8a7580393,
         type: 3}
       propertyPath: m_Offset.x
-      value: -0.43347454
+      value: -0.029568195
       objectReference: {fileID: 0}
     - target: {fileID: 6646280002093078613, guid: 522b2f25393295747822e1c8a7580393,
         type: 3}
       propertyPath: m_Size.x
-      value: 10.6686325
+      value: 6.611266
       objectReference: {fileID: 0}
     - target: {fileID: 6646280002093078615, guid: 522b2f25393295747822e1c8a7580393,
         type: 3}
@@ -701,32 +706,42 @@ PrefabInstance:
     - target: {fileID: 6646280002093078619, guid: 522b2f25393295747822e1c8a7580393,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.6
+      value: 3.78
       objectReference: {fileID: 0}
     - target: {fileID: 6646280002093078619, guid: 522b2f25393295747822e1c8a7580393,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.32
+      value: 1.17
       objectReference: {fileID: 0}
     - target: {fileID: 6646280002093078619, guid: 522b2f25393295747822e1c8a7580393,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.94498473
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6646280002093078619, guid: 522b2f25393295747822e1c8a7580393,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.32711458
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6646280002093078619, guid: 522b2f25393295747822e1c8a7580393,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 141.813
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6646280002093078619, guid: 522b2f25393295747822e1c8a7580393,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6646280002093078619, guid: 522b2f25393295747822e1c8a7580393,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6646280002346003305, guid: 522b2f25393295747822e1c8a7580393,
         type: 3}
       propertyPath: m_Color.r
-      value: 0.105882354
+      value: 0.7647059
       objectReference: {fileID: 0}
     - target: {fileID: 6646280002346003305, guid: 522b2f25393295747822e1c8a7580393,
         type: 3}
@@ -736,7 +751,7 @@ PrefabInstance:
     - target: {fileID: 6646280002346003305, guid: 522b2f25393295747822e1c8a7580393,
         type: 3}
       propertyPath: m_Color.b
-      value: 0.8235294
+      value: 0.81960785
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 522b2f25393295747822e1c8a7580393, type: 3}

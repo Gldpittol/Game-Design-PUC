@@ -1318,7 +1318,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "Cassiano Saraiva - Gabriel Pittol - Marcelo Fr\xF3es"
+  m_Text: Cassiano Saraiva - Gabriel Pittol - Marcelo Froes
 --- !u!222 &1550852164
 CanvasRenderer:
   m_ObjectHideFlags: 0

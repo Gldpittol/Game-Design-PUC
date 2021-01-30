@@ -219,7 +219,6 @@ MonoBehaviour:
   circleOutline: {fileID: 610568798349674456}
   visualFeedback: {fileID: 9124926432081262984}
   immunityFeedback: {fileID: 848870639245821728}
-  mouseCursorHand: {fileID: 2800000, guid: aadd51507f719254eb873a2eaa5a6f10, type: 3}
 --- !u!50 &352762768
 Rigidbody2D:
   serializedVersion: 4
@@ -270,7 +269,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.04071814, y: -0.0407176}
+  m_Offset: {x: -0.02035904, y: -0.010179043}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -281,7 +280,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.1095384, y: 1.8135897}
+  m_Size: {x: 1.7203064, y: 2.4447165}
   m_EdgeRadius: 0
 --- !u!1 &9124926432081262984
 GameObject:

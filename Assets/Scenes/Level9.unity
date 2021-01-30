@@ -440,6 +440,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: HUD
       objectReference: {fileID: 0}
+    - target: {fileID: 3483951526493506014, guid: 9d4beace0a130f64c98984a51a99a27d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8227269948913105675, guid: 9d4beace0a130f64c98984a51a99a27d,
         type: 3}
       propertyPath: m_IsActive
@@ -598,6 +603,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1094960917123511073, guid: 522b2f25393295747822e1c8a7580393,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.058823533
+      objectReference: {fileID: 0}
+    - target: {fileID: 1094960917123511073, guid: 522b2f25393295747822e1c8a7580393,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.44705886
+      objectReference: {fileID: 0}
+    - target: {fileID: 1094960917123511073, guid: 522b2f25393295747822e1c8a7580393,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.45098042
+      objectReference: {fileID: 0}
     - target: {fileID: 6646280000951581467, guid: 522b2f25393295747822e1c8a7580393,
         type: 3}
       propertyPath: m_Color.r

@@ -15,6 +15,15 @@ public class ButtonsOnClick : MonoBehaviour
             GetComponent<Image>().color = Color.gray;
         }
     }
+    public void OpenOptions()
+    {
+        Time.timeScale = 0f;
+    }
+
+    public void CloseOptions()
+    {
+        Time.timeScale = 1f;
+    }
     public void QuitGame()
     {
         Application.Quit();
